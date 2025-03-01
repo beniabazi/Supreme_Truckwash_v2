@@ -6,64 +6,52 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==============================
     let slideIndex = 0;
     const slidesContainer = document.querySelector(".slides");
-    const slides = document.querySelectorAll(".hero-slider .slide"); // Only hero slides
+    const slides = document.querySelectorAll(".hero-slider .slide");
     const dots = document.querySelectorAll(".dots-container .dot");
-    const totalSlides = slides.length; // Correct count
+    const totalSlides = slides.length;
+
+    if (!slidesContainer || !totalSlides) {
+        console.error("❌ Hero slider elements not found.");
+    } else {
+        console.log(`✅ Found ${totalSlides} hero slides.`);
+    }
 
     function showSlide(index) {
-        if (index >= totalSlides) {
-            slideIndex = 0;
-        } else if (index < 0) {
-            slideIndex = totalSlides - 1;
-        } else {
-            slideIndex = index;
-        }
-
+        if (!slidesContainer) return;
+        
+        slideIndex = (index + totalSlides) % totalSlides;
         slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-
-        // Update Active Dot
         dots.forEach(dot => dot.classList.remove("active"));
-        if (dots[slideIndex]) {
-            dots[slideIndex].classList.add("active");
-        }
+        dots[slideIndex]?.classList.add("active");
+        console.log(`🖼️ Showing Hero Slide ${slideIndex + 1}`);
     }
 
     function changeSlide(n) {
         showSlide(slideIndex + n);
     }
 
-    function goToSlide(n) {
-        showSlide(n);
-    }
+    let slideInterval = setInterval(() => changeSlide(1), 5000);
 
-    function autoSlide() {
-        changeSlide(1);
-    }
-
-    let slideInterval = setInterval(autoSlide, 5000);
-
-    // Button Controls
-    document.querySelector(".prev").addEventListener("click", function () {
+    document.querySelector(".prev")?.addEventListener("click", () => {
         changeSlide(-1);
         resetAutoSlide();
     });
 
-    document.querySelector(".next").addEventListener("click", function () {
+    document.querySelector(".next")?.addEventListener("click", () => {
         changeSlide(1);
         resetAutoSlide();
     });
 
-    // Dot Navigation
     dots.forEach((dot, index) => {
-        dot.addEventListener("click", function () {
-            goToSlide(index);
+        dot.addEventListener("click", () => {
+            showSlide(index);
             resetAutoSlide();
         });
     });
 
     function resetAutoSlide() {
         clearInterval(slideInterval);
-        slideInterval = setInterval(autoSlide, 5000);
+        slideInterval = setInterval(() => changeSlide(1), 5000);
     }
 
     showSlide(slideIndex);
@@ -76,41 +64,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const welcomeSlides = document.querySelectorAll(".welcome-slider .slide");
     const totalWelcomeSlides = welcomeSlides.length;
 
-    function showWelcomeSlide(index) {
-        if (index >= totalWelcomeSlides) {
-            welcomeSlideIndex = 0;
-        } else if (index < 0) {
-            welcomeSlideIndex = totalWelcomeSlides - 1;
-        } else {
-            welcomeSlideIndex = index;
-        }
+    if (!welcomeSlidesContainer || !totalWelcomeSlides) {
+        console.error("❌ Welcome slider elements not found.");
+    } else {
+        console.log(`✅ Found ${totalWelcomeSlides} welcome slides.`);
+    }
 
+    function showWelcomeSlide(index) {
+        if (!welcomeSlidesContainer) return;
+        
+        welcomeSlideIndex = (index + totalWelcomeSlides) % totalWelcomeSlides;
         welcomeSlidesContainer.style.transform = `translateX(-${welcomeSlideIndex * 100}%)`;
+        console.log(`🖼️ Showing Welcome Slide ${welcomeSlideIndex + 1}`);
     }
 
     function changeWelcomeSlide(n) {
         showWelcomeSlide(welcomeSlideIndex + n);
     }
 
-    let welcomeSlideInterval = setInterval(() => {
-        changeWelcomeSlide(1);
-    }, 5000);
+    let welcomeSlideInterval = setInterval(() => changeWelcomeSlide(1), 5000);
 
-    document.querySelector(".welcome-slider .prev").addEventListener("click", function () {
-        changeWelcomeSlide(-1);
-        resetWelcomeAutoSlide();
-    });
+    const welcomePrev = document.querySelector(".welcome-slider .prev");
+    const welcomeNext = document.querySelector(".welcome-slider .next");
 
-    document.querySelector(".welcome-slider .next").addEventListener("click", function () {
-        changeWelcomeSlide(1);
-        resetWelcomeAutoSlide();
-    });
+    if (welcomePrev && welcomeNext) {
+        welcomePrev.addEventListener("click", () => {
+            changeWelcomeSlide(-1);
+            resetWelcomeAutoSlide();
+        });
+
+        welcomeNext.addEventListener("click", () => {
+            changeWelcomeSlide(1);
+            resetWelcomeAutoSlide();
+        });
+    } else {
+        console.warn("⚠ Welcome slider navigation buttons not found.");
+    }
 
     function resetWelcomeAutoSlide() {
         clearInterval(welcomeSlideInterval);
-        welcomeSlideInterval = setInterval(() => {
-            changeWelcomeSlide(1);
-        }, 5000);
+        welcomeSlideInterval = setInterval(() => changeWelcomeSlide(1), 5000);
     }
 
     showWelcomeSlide(welcomeSlideIndex);
@@ -118,13 +111,46 @@ document.addEventListener("DOMContentLoaded", function () {
     // ==============================
     // ❓ FAQ SECTION TOGGLE FUNCTIONALITY
     // ==============================
+    console.log("🚀 FAQ script loaded after DOM is fully loaded!");
+
     const faqItems = document.querySelectorAll(".faq-item");
 
-    faqItems.forEach((item) => {
+    if (!faqItems.length) {
+        console.error("❌ No .faq-item elements found!");
+    } else {
+        console.log(`✅ Found ${faqItems.length} FAQ items.`);
+    }
+
+    faqItems.forEach((item, index) => {
         const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        const icon = question?.querySelector(".toggle-icon");
+
+        if (!question) {
+            console.error(`❌ FAQ question missing for item at index ${index}`);
+            return;
+        }
+
+        console.log(`✅ FAQ ${index + 1}: ${question.textContent.trim()}`);
 
         question.addEventListener("click", () => {
+            console.log(`🟢 Clicked: ${question.textContent.trim()}`);
+
             item.classList.toggle("active");
+
+            if (answer) {
+                answer.style.display = item.classList.contains("active") ? "block" : "none";
+                console.log(`📖 FAQ Answer ${index + 1} is now ${answer.style.display}`);
+            } else {
+                console.error(`❌ FAQ answer missing for item at index ${index}`);
+            }
+
+            if (icon) {
+                icon.textContent = item.classList.contains("active") ? "-" : "+";
+                console.log(`🔁 Icon changed: ${icon.textContent}`);
+            } else {
+                console.error(`❌ Toggle icon missing for FAQ item ${index}`);
+            }
         });
     });
 
@@ -141,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.getElementById("email").value.trim();
             const message = document.getElementById("message").value.trim();
 
-            if (name === "" || email === "" || message === "") {
+            if (!name || !email || !message) {
                 alert("⚠ Please fill in all fields.");
                 return;
             }
@@ -150,39 +176,24 @@ document.addEventListener("DOMContentLoaded", function () {
             contactForm.reset();
         });
     }
-});
 
-
-// Mobile Menu Toggle
-document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector("nav ul");
-
-    // Toggle menu when clicking the hamburger icon
-    hamburger.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    // ==============================
+    // 🍔 MOBILE MENU TOGGLE
+    // ==============================
     const hamburger = document.querySelector(".hamburger");
     const closeMenu = document.querySelector(".close-menu");
     const mobileMenu = document.querySelector(".mobile-menu");
 
     function toggleMenu() {
-        mobileMenu.classList.toggle("active");
+        mobileMenu?.classList.toggle("active");
     }
 
-    hamburger.addEventListener("click", toggleMenu);
-    closeMenu.addEventListener("click", toggleMenu);
+    hamburger?.addEventListener("click", toggleMenu);
+    closeMenu?.addEventListener("click", toggleMenu);
 
-    // Close menu when clicking a nav link
     document.querySelectorAll(".mobile-menu ul li a").forEach(item => {
-        item.addEventListener("click", function () {
-            mobileMenu.classList.remove("active");
+        item.addEventListener("click", () => {
+            mobileMenu?.classList.remove("active");
         });
     });
 });
-
-
-
