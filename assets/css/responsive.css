@@ -1,0 +1,771 @@
+/* Mobile devices (portrait and landscape) */
+@media only screen and (max-width: 480px) {
+
+    .close-menu {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    .mobile-menu.active .close-menu {
+        display: block;
+    }
+
+
+    /* =================================================================
+    Home Page
+    =================================================================*/
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        color: white
+    }
+
+    .close-menu :active {
+        display: block;
+        color: white;
+        size: 60px;
+    }
+
+    .mobile-menu {
+        display: none;
+        width: 100vw;
+        height: 100%;
+    }
+    .dots-container {
+        display: none;
+    }
+
+    .three-columns .container{
+        display: flex;
+        flex-direction: column;
+    }    
+
+    .container .welcome-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container .welcome-section p {
+        font-size: 1.5rem;
+        width: 80%;
+    }
+
+    .welcome-slider {
+        width: 100%;
+        height: 100%;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-logo, .footer-nav, .footer-contact {
+        width: 100%;
+        padding-top: 4vh;
+    }
+
+   /* =================================================================
+    About us Page
+    =================================================================*/
+    .about-content, .commitment-content-mobile, .network-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-content img, .commitment-content-mobile img, .network-container img {
+        order: 1; /* Ensure the image appears below the text */
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .about-content p, .commitment-content-mobile p, .network-container p {
+        order: 0; /* Ensure the text appears above the image */
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+
+    .commitment{
+        display: none;
+    }
+
+    .about-us-header {
+        font-size: 2rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .about-us-content {
+        padding: 20px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .about-us-image {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .about-us-team {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        }
+
+        .team-member {
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        .team-member p {
+        font-size: 1rem;
+        margin: 5px 0;
+        }
+
+        .team-member img {
+        width: 80%;
+        height: auto;
+        border-radius: 50%;
+        margin-top: 10px;
+        order: 1; /* Ensure the image appears below the text */
+        }
+
+        .team-member h3 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        order: 0; /* Ensure the heading appears above the text */
+        }
+
+        .extra-mile-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 4vh;
+        }
+
+        .network-container {
+        display: flex;
+        }
+
+    /* =================================================================
+    Services Page
+    =================================================================*/
+    .services-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 90%; /* Adjusted width */
+        margin: 0 auto; /* Center the content */
+    }
+
+    .services-section img {
+        order: 1; /* Ensure the image appears below the text */
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .services-section p {
+        order: 0; /* Ensure the text appears above the image */
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+
+    .services-header {
+        font-size: 2rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .services-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .service-item {
+        width: 100%; /* Adjusted width */
+        height: auto; /* Adjust height to fit content */
+        margin: 10px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    }
+
+    .service-item img {
+    
+    display: none;
+    }
+
+    .service-item h3 {
+        font-size: 1.5rem;
+        margin: 0px 0;
+        order: 0; /* Ensure the heading appears above the text */
+    }
+
+    .service-item p {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+    
+    .service-text {
+        width: 100%;
+        padding: 10px;
+    }
+
+}
+
+/* Tablets (portrait and landscape) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .close-menu {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    .mobile-menu.active .close-menu {
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        color: white;
+    }
+
+    .close-menu :active {
+        display: block;
+        color: white;
+        size: 60px;
+    }
+
+    .mobile-menu {
+        display: none;
+        width: 100vw;
+        height: 100%;
+    }
+
+    .dots-container {
+        display: none;
+    }
+
+    .three-columns .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container .welcome-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container .welcome-section p {
+        font-size: 1.5rem;
+        width: 80%;
+    }
+
+    .welcome-slider {
+        width: 100%;
+        height: 100%;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-logo, .footer-nav, .footer-contact {
+        width: 100%;
+        padding-top: 4vh;
+    }
+
+    .about-content, .commitment-content-mobile, .network-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-content img, .commitment-content-mobile img, .network-container img {
+        order: 1;
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .about-content p, .commitment-content-mobile p, .network-container p {
+        order: 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+
+    .commitment {
+        display: none;
+    }
+
+    .about-us-header {
+        font-size: 2rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .about-us-content {
+        padding: 20px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .about-us-image {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .about-us-team {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .team-member {
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member p {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    .team-member img {
+        width: 80%;
+        height: auto;
+        border-radius: 50%;
+        margin-top: 10px;
+        order: 1;
+    }
+
+    .team-member h3 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        order: 0;
+    }
+
+    .extra-mile-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 4vh;
+    }
+
+    .network-container {
+        display: flex;
+    }
+
+    .services-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .services-section img {
+        order: 1;
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .services-section p {
+        order: 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+
+    .services-header {
+        font-size: 2rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .services-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .service-item {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .service-item img {
+        display: none;
+    }
+
+    .service-item h3 {
+        font-size: 1.5rem;
+        margin: 0px 0;
+        order: 0;
+    }
+
+    .service-item p {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    .service-text {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Small desktops and laptops */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .close-menu {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    .mobile-menu.active .close-menu {
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 10px; /* Adjusted to ensure visibility */
+    }
+
+    .close-menu :active {
+        display: block;
+        color: white;
+        size: 60px;
+    }
+
+    .mobile-menu {
+        display: none;
+        width: 100vw;
+        height: 100%;
+    }
+
+    .dots-container {
+        display: none;
+    }
+
+    .three-columns .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .container .welcome-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .container .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .container .welcome-section p {
+        font-size: 1.5rem;
+        width: 80%;
+    }
+
+    .welcome-slider {
+        width: 100%;
+        height: 100%;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .footer-logo, .footer-nav, .footer-contact {
+        width: 100%;
+        padding-top: 4vh;
+    }
+
+    .about-content, .commitment-content-mobile, .network-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .about-content img, .commitment-content-mobile img, .network-container img {
+        order: 1;
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .about-content p, .commitment-content-mobile p, .network-container p {
+        order: 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+
+    .commitment {
+        display: none;
+    }
+
+    .about-us-header {
+        font-size: 2rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .about-us-content {
+        padding: 20px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .about-us-image {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .about-us-team {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .team-member {
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member p {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    .team-member img {
+        width: 80%;
+        height: auto;
+        border-radius: 50%;
+        margin-top: 10px;
+        order: 1;
+    }
+
+    .team-member h3 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        order: 0;
+    }
+
+    .extra-mile-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 4vh;
+    }
+
+    .network-container {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .services-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .services-section img {
+        order: 1;
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .services-section p {
+        order: 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+
+    .services-header {
+        font-size: 2rem;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .services-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .service-item {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .service-item img {
+        display: none;
+    }
+
+    .service-item h3 {
+        font-size: 1.5rem;
+        margin: 0px 0;
+        order: 0;
+    }
+
+    .service-item p {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    .service-text {
+        width: 100%;
+        padding: 10px;
+    }
+}
+

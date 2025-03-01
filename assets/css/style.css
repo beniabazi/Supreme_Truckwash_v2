@@ -1,0 +1,1213 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Central Container */
+.container {
+  width: 90%;
+  max-width: 1200px; /* Ensures content doesn't stretch too much */
+  margin: 0 auto;
+}
+
+/* Top Header */
+.top-header {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  text-align: right;
+}
+
+.top-header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.top-header a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   Navigation Bar
+================================= */
+header {
+  background-color: #002b4c;
+  padding: 10px 0;
+  position: relative;
+  z-index: 1001; /* Ensures it's above content */
+}
+
+/* Center Content */
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo Styling */
+.logo img {
+  height: 50px;
+}
+
+/* Navigation for Desktop */
+
+
+.desktop-nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav li {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav li a {
+  color: white !important;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+.desktop-nav li a:hover {
+  color: #00aaff !important;
+}
+
+/* Default Hamburger Icon */
+.hamburger {
+  display: none;
+}
+
+/* ===========================
+   Mobile Menu & Toggle Styles
+=========================== */
+
+/* Mobile Menu (Hidden by Default) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 43, 76, 0.95); /* Dark Blue with opacity */
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 60px; /* Space for close button */
+  z-index: 1002;
+}
+
+/* Show menu when active */
+.mobile-menu.active {
+  display: flex;
+}
+
+/* Navigation Links */
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-menu ul li {
+  margin: 15px 0;
+}
+
+.mobile-menu ul li a {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.mobile-menu ul li a:hover {
+  color: #00aaff;
+}
+
+/* Show/Hide Menu Toggle */
+.mobile-menu.active ~ .menu-toggle .hamburger {
+  display: none;
+} 
+
+/* =======================================================
+   Index Page
+   ======================================================= */
+
+/* Hero Section */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+}
+
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 550px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  width: 80%;
+  max-width: 700px;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.hero-text .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  max-width: fit-content;
+}
+
+.hero-text .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Navigation Arrows */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Pagination Dots */
+.dots-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+/* Three Column Section */
+.three-columns {
+  background: linear-gradient(to right, #001f3f, #003366);
+  padding: 50px 0;
+  text-align: center;
+  color: white;
+}
+
+.three-columns .container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+}
+
+.column h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.column p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.column .btn {
+  background-color: #00aaff;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  display: inline-block;
+  max-width: fit-content;
+}
+
+.column .btn:hover {
+  background-color: #0088cc;
+}
+
+/* Welcome Section */
+
+.welcome-section {
+  position: relative;
+  background: url("../images/mobile-truck-wash-service-melbourne-banner.png")
+    no-repeat center center;
+  background-size: cover;
+  padding: 80px 0;
+}
+
+/* Overlay to reduce opacity */
+.welcome-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* White overlay with opacity */
+}
+
+/* Ensures content is above the overlay */
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Title */
+.welcome-content h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #002b4c;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Layout using Grid */
+.welcome-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text Box */
+.welcome-text {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center the text horizontally */
+  text-align: center; /* Ensure the text is centered */
+  gap: 15px; /* Adds space between the paragraphs */
+}
+
+.welcome-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+  margin: 10px 0;
+}
+
+/* Slideshow Styling */
+.welcome-slider {
+  position: relative;
+  width: 500px; /* Fixed width for balance */
+  height: fit-content; /* Matches text height */
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Slides */
+.welcome-slider .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.welcome-slider .slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Navigation Arrows */
+.welcome-slider .prev,
+.welcome-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 3;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.welcome-slider .prev {
+  left: 15px;
+}
+.welcome-slider .next {
+  right: 15px;
+}
+
+.welcome-slider .prev:hover,
+.welcome-slider .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Contact CTA Section */
+.contact-cta {
+  background-color: #666;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.contact-cta h3 {
+  font-size: 22px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.contact-btn {
+  background-color: black;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.contact-btn:hover {
+  background-color: #333;
+}
+
+/* ========================================================
+   About Us
+   ======================================================== */
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  background: url("../images/custom-kenworth-truck-polished-clean.jpg")
+    center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-banner .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Darker overlay for better text readability */
+}
+
+.hero-banner h1 {
+  font-size: 42px;
+  font-weight: bold;
+  z-index: 3; /* Increased z-index to ensure it appears above the overlay */
+  text-transform: uppercase;
+  position: relative; /* Added to ensure z-index works */
+}
+
+.hero-banner p {
+  font-size: 18px;
+  z-index: 3; /* Increased z-index to ensure it appears above the overlay */
+  margin-top: 10px;
+  position: relative; /* Added to ensure z-index works */
+}
+
+.about-us,
+.commitment,
+.extra-mile,
+.network {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.about-content,
+.commitment-content,
+.network-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-content .image,
+.commitment-content .image,
+.network-content .image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-content img,
+.commitment-content img,
+.network-content img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-content .text,
+.commitment-content .text,
+.network-content .text {
+  flex: 1;
+}
+
+.about-content h2,
+.commitment-content h2,
+.network-content h2 {
+  font-size: 30px;
+  color: #002b4c;
+  margin-bottom: 15px;
+}
+
+.commitment-mobile {
+  display: none;
+}
+
+/* Extra Mile Section */
+.extra-mile {
+  text-align: center;
+}
+
+.extra-mile h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.extra-mile-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.extra-mile .item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.extra-mile .item img {
+  width: 30px;
+}
+
+.network-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 50px;
+}
+
+.network-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.network-text h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #002b4c;
+  margin-bottom: 10px;
+}
+
+.network-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.network-image {
+  flex: 1;
+  text-align: center;
+}
+
+.network-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.network-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ========================================================
+   Services Page - Modernized Styling
+   ======================================================== */
+
+.services-intro {
+  position: relative;
+  background: url("../images/kenworth-truck-polishing-and-detailing-melbourne.jpg")
+    center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  flex-direction: column; /* Ensures text is centered vertically */
+}
+
+.services-intro .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text readability */
+}
+
+.services-intro h1 {
+  font-size: 34px;
+  font-weight: 700;
+  z-index: 3;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  position: relative; /* Added to ensure z-index works */
+}
+
+.services-intro p {
+  font-size: 18px;
+  z-index: 3; /* Increased z-index to ensure it appears above the overlay */
+  margin-top: 10px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center; /* Ensures text is centered horizontally */
+  position: relative; /* Added to ensure z-index works */
+}
+
+/* Services List Section */
+.services-list {
+  background-color: #f8f9fa;
+  padding: 70px 20px;
+}
+
+.services-list .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-list h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #002b4c;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Service Item Styling */
+.service-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin-bottom: 40px;
+  padding: 25px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: 250px;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-item img {
+  width: 45%;
+  border-radius: 12px;
+  margin-right: 25px;
+  transition: transform 0.3s ease;
+  max-height: 230px;
+}
+
+.service-item:hover img {
+  transform: scale(1.03);
+}
+
+.service-text {
+  width: 55%;
+}
+
+.service-text h3 {
+  font-size: 24px;
+  color: #002b4c;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.service-text p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Services Benefits Section */
+.services-benefits {
+  background: linear-gradient(to right, #001f3f, #003366);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin-top: 50px;
+}
+
+.services-benefits h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.services-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.services-benefits ul li {
+  font-size: 18px;
+  padding: 12px 0;
+  font-weight: 500;
+}
+
+/* ========================================================
+   FAQs Page
+   ======================================================== */
+
+/* FAQs Introduction Section */
+
+.FAQ-banner {
+  position: relative;
+  background: url("../images/cleaned-heavy-machinery-hyster-forklift-melbourne.jpg") center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.FAQ-banner .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text readability */
+}
+
+.FAQ-banner h1 {
+  font-size: 42px;
+  font-weight: bold;
+  z-index: 3; /* Increased z-index to ensure it appears above the overlay */
+  text-transform: uppercase;
+  position: relative; /* Added to ensure z-index works */
+}
+
+.FAQ-banner p {
+  font-size: 18px;
+  z-index: 3; /* Increased z-index to ensure it appears above the overlay */
+  margin-top: 10px;
+  position: relative; /* Added to ensure z-index works */
+}
+
+.faqs-intro {
+  background-color: rgba(255, 255, 255, 0.7); /* More see-through white background */
+  padding: 50px 15px;
+  text-align: center;
+  max-width: 1100px;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.9);
+}
+
+.faqs-intro h1 {
+  font-size: 28px;
+  color: #002b4c;
+  margin-bottom: 15px;
+}
+
+.faqs-intro p {
+  font-size: 18px;
+  text-align: justify;
+}
+
+/* FAQs Section */
+.faqs-section {
+  background-color: #f8f9fa;
+  padding: 60px 15px;
+}
+
+.faqs-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqs-section h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #002b4c;
+  margin-bottom: 30px;
+}
+
+/* FAQ Items */
+.faq-item {
+  background: white;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  color: #002b4c;
+  border: none;
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  display: none;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  text-align: justify;
+}
+
+/* Toggle Icon */
+.toggle-icon {
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+/* When Opened */
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item.active .toggle-icon {
+  transform: rotate(45deg);
+}
+
+/* ========================================================
+   Contact Page
+   ======================================================== */
+
+/* Contact Intro Section */
+.contact-intro {
+  position: relative;
+  background: url("../images/mobile-truck-wash-service-melbourne-banner.png") center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.contact-intro .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay for better text readability */
+}
+
+.contact-intro h1 {
+  font-size: 42px;
+  font-weight: bold;
+  z-index: 3; /* Increased z-index to ensure it appears above the overlay */
+  text-transform: uppercase;
+  position: relative; /* Added to ensure z-index works */
+}
+
+.contact-intro p {
+  font-size: 18px;
+  z-index: 3; /* Increased z-index to ensure it appears above the overlay */
+  margin-top: 10px;
+  position: relative; /* Added to ensure z-index works */
+}
+
+/* Contact Details */
+.contact-details {
+  background-color: #f8f9fa;
+  padding: 50px 15px;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-info h2 {
+  font-size: 26px;
+  color: #002b4c;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Google Maps */
+.map-container {
+  max-width: 800px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Contact Form */
+.contact-form {
+  background-color: #ffffff;
+  padding: 50px 15px;
+  max-width: 800px;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #002b4c;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Button Styling */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  max-width: fit-content;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* ========================================================
+   Footer Section
+   ======================================================== */
+.footer {
+  background: linear-gradient(to right, #b0b5b8, #8c9194);
+  padding: 50px 0;
+  color: black;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  width: 30%;
+  text-align: left;
+}
+
+.footer-logo img {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+
+.footer-logo h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.footer-logo .btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  max-width: fit-content;
+}
+
+.footer-logo .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Footer Navigation */
+.footer-nav {
+  width: 30%;
+}
+
+.footer-nav h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li {
+  margin-bottom: 8px;
+}
+
+.footer-nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.footer-nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Contact */
+.footer-contact {
+  width: 30%;
+}
+
+.footer-contact h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-contact p {
+  font-size: 16px;
+}
+
+.footer-contact a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   ✅ Hero Section - Fully Responsive
+   =============================== */
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+}
+
+/* ===============================
+   ✅ Services Section - Modern Responsive
+   =============================== */
+
+.services-intro {
+  position: relative;
+  background: url("../images/kenworth-truck-polishing-and-detailing-melbourne.jpg")
+    no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+/* Dark Overlay */
+.services-intro .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   ✅ Services List - Grid Layout
+   =============================== */
+
+.services-list {
+  background-color: #f8f9fa;
+  padding: 70px 20px;
+}
+
+.services-list .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Responsive Service Items */
+.service-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin-bottom: 40px;
+  padding: 25px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: 250px;
+}
